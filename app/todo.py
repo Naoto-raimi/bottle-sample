@@ -1,5 +1,6 @@
 from bottle import route, run, template, redirect, request
 import sqlite3
+
 from dbaccess import dbAccess
 
 # データベースに接続
@@ -12,7 +13,7 @@ db_access.init_todo()
 @route("/")
 def index():
     todo_list = db_access.get_todo_list()
-    return template("index", todo_list=todo_list)
+    return template("./web/index", todo_list=todo_list)
 
 
 @route("/add", method="POST")
