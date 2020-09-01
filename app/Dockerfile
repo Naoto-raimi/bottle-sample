@@ -5,5 +5,4 @@ RUN pip install bottle
 RUN pip install uwsgi
 
 COPY todo.py /opt/app
-COPY dbaccess.py /opt/app
 COPY uwsgi.ini /opt/app

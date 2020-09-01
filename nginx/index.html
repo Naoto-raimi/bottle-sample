@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoアプリ(Python3 + Bottle)</title>
+　<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <h1>ToDoアプリ</h1>
+  <p>ToDoをPython Bottleのアプリで管理しよう！！</p>
+
+  <h2>ToDo 新規登録</h2>
+  <form name="todo" method="POST" action="/add">
+      <input type="text" name="todo_list" placeholder="ToDoを入力" required /><br/>
+      <input type="submit" value="追加" />
+  </form>
+
+  <h2>ToDo 一覧</h2>
+  <table class="table"> 
+    <thead class='thead-dark'>
+        <tr>
+        <td>＃</td>
+        <td>やること</td>
+        <td>操作</td>
+        </tr>
+    </thread>
+　
+    <tbody>
+    %for todo in todo_list:
+        <tr>
+        <td>{{todo["id"]}}</td>
+        <td>{{todo["todo"]}}</td>
+        <td><a href="/delete/{{todo['id']}}">削除</a></td>
+        </tr>
+    %end
+    </tbody>
+  </table>
+</body>
+</html>

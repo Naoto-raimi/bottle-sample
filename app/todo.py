@@ -1,7 +1,10 @@
-from bottle import route, run, template, redirect, request
+from bottle import route, run, template, redirect, request, TEMPLATE_PATH
 import sqlite3
 
 from dbaccess import dbAccess
+
+
+TEMPLATE_PATH.append("./template")
 
 # データベースに接続
 # db_nameと同名のファイルがなければ，ファイルが作成される
@@ -13,7 +16,7 @@ db_access.init_todo()
 @route("/")
 def index():
     todo_list = db_access.get_todo_list()
-    return template("./template/index", todo_list=todo_list)
+    return template('index.html', todo_list=todo_list)
 
 
 @route("/add", method="POST")
@@ -32,4 +35,5 @@ def delete(todo_id):
 
 
 # テスト用のサーバをlocalhost:8080で起動する
-run(host="localhost", port=8080, debug=True, reloader=True)
+# run(host="localhost", port=8080, debug=True, reloader=True)
+run(host='0.0.0.0', port=3031, debug=True, reloader=True)

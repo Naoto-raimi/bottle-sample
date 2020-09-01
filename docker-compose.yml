@@ -5,8 +5,8 @@ services:
     build: ./app
     command: uwsgi --ini uwsgi.ini
   nginx:
-    container_name: web
-    build: ./web
+    container_name: nginx
+    build: ./nginx
     links:
       - uwsgi
     volumes_from:
