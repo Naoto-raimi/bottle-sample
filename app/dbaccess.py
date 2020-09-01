@@ -1,7 +1,7 @@
 import sqlite3
 
 
-class dbAccess:
+class dbAccess(object):
     def __init__(self, db_name):
         self.db_name = db_name
 
@@ -17,8 +17,6 @@ class dbAccess:
                     id INTEGER PRIMARY KEY, 
                     todo TEXT)
                 """)
-            # プログラムから試しに１つだけToDoを追加しておく
-            c.execute("INSERT INTO todo_list VALUES (1, 'デフォルトTODO')")
         except sqlite3.Error as e:
             print('sqlite3.Error occurred:', e.args[0])
 
