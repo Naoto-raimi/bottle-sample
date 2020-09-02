@@ -28,7 +28,12 @@ class dbAccess(object):
         conn = sqlite3.connect(self.db_name)
         c = conn.cursor()
         select = "select id, todo from todo_list"
-        c.execute(select)
+
+        try:
+            c.execute(select)
+        except sqlite3.Error as e:
+            print('sqlite3.Error occurred:', e.args[0])
+
         todo_list = []
         for row in c.fetchall():
             todo_list.append({
@@ -42,7 +47,12 @@ class dbAccess(object):
         conn = sqlite3.connect(self.db_name)
         c = conn.cursor()
         insert = "insert into todo_list(todo) values(?)"
-        c.execute(insert, (todo,))  # todoのあとにカンマをつけないとなぜかエラーになる
+
+        try:
+            c.execute(insert, (todo,))  # todoのあとにカンマをつけないとなぜかエラーになる
+        except sqlite3.Error as e:
+            print('sqlite3.Error occurred:', e.args[0])
+
         conn.commit()
         conn.close()
 
@@ -50,6 +60,11 @@ class dbAccess(object):
         conn = sqlite3.connect(self.db_name)
         c = conn.cursor()
         delete = "delete from todo_list where id=?"
-        c.execute(delete, (todo_id,))
+
+        try:
+            c.execute(delete, (todo_id,))
+        except sqlite3.Error as e:
+            print('sqlite3.Error occurred:', e.args[0])
+
         conn.commit()
         conn.close()
