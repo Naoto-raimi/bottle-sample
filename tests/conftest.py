@@ -4,7 +4,7 @@ import sqlite3
 from app.dbaccess import dbAccess
 
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope='session', autouse=False)
 def test_data():
     test_todo_list = ['ご飯を食べる', '美術館にいく']
     db_access = dbAccess("mytodo.db")
