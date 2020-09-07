@@ -7,7 +7,7 @@ except ImportError:
     from dbaccess import dbAccess
 
 
-TEMPLATE_PATH.append("./template")
+TEMPLATE_PATH.append("./app/template")
 
 # データベースに接続
 # db_nameと同名のファイルがなければ，ファイルが作成される

@@ -24,18 +24,18 @@ class TestTodo(object):
     def teardown_method(self, method):
         print('method={}'.format(method.__name__))
 
-    # def test_index_webtest(self):
-    #     # setup
-    #     application = AppTest(todo.app)
-    #     # execute
-    #     responce = application.get('/')
-    #     # assert
-    #     assert responce.status_code == 200
-    #     assert responce.content_type == 'text/html'
-
-    def test_index(self):
+    def test_index_webtest(self):
+        # setup
+        application = AppTest(todo.app)
         # execute
-        responce = todo.index()
+        responce = application.get('/')
         # assert
         assert responce.status_code == 200
         assert responce.content_type == 'text/html'
+
+    # def test_index(self):
+    #     # execute
+    #     responce = todo.index()
+    #     # assert
+    #     assert responce.status_code == 200
+    #     assert responce.content_type == 'text/html'
