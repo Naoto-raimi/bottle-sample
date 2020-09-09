@@ -4,6 +4,8 @@ services:
     container_name: app
     build: ./app
     command: uwsgi --ini uwsgi.ini
+    expose:
+      - "3031"
   nginx:
     container_name: nginx
     build: ./nginx
@@ -12,4 +14,4 @@ services:
     volumes_from:
       - uwsgi
     ports:
-      - "0.0.0.0:80:80"
+      - "80:80"
