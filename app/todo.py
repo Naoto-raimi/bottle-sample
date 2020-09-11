@@ -7,7 +7,7 @@ except ImportError:
     from dbaccess import dbAccess
 
 
-TEMPLATE_PATH.append("./app/template")
+TEMPLATE_PATH.append("./template")
 
 # データベースに接続
 # db_nameと同名のファイルがなければ，ファイルが作成される
@@ -40,5 +40,6 @@ def delete(todo_id):
 
 
 # テスト用のサーバをlocalhost:8080で起動する
-run(app=app, host="localhost", port=8080, debug=True, reloader=True)
+if __name__ == "__main__":
+    run(app=app, host="localhost", port=8080, debug=True, reloader=True)
 # run(app=app, host='0.0.0.0', port=3031, debug=True, reloader=True)

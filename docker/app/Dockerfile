@@ -8,6 +8,6 @@ ADD nginx.conf /etc/nginx/conf.d/
 
 RUN mkdir -p /opt/uwsgi
 COPY uwsgi.ini /opt/uwsgi/uwsgi.ini
-ENV UWSGI_INI /opt/uwesgi/uwesgi.ini
+ENV UWSGI_INI /opt/uwsgi/uwsgi.ini
 
 WORKDIR /var/www/app
