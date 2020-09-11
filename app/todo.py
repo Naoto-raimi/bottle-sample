@@ -40,5 +40,5 @@ def delete(todo_id):
 
 
 # テスト用のサーバをlocalhost:8080で起動する
-# run(app=app, host="localhost", port=8080, debug=True, reloader=True)
-run(app=app, host='0.0.0.0', port=3031, debug=True, reloader=True)
+run(app=app, host="localhost", port=8080, debug=True, reloader=True)
+# run(app=app, host='0.0.0.0', port=3031, debug=True, reloader=True)
